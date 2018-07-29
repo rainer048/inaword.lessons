@@ -1,0 +1,13 @@
+pragma solidity 0.4.24;
+
+contract BusinessCard {
+    
+    mapping (bytes32 => string) data;
+    
+    function setData(string key, string value) public {
+        data[keccak256(abi.encodePacked(key))] = value;
+    }
+    function getData(string key) public view returns (string) {
+        return data[keccak256(abi.encodePacked(key))];
+    }
+}
