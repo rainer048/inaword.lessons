@@ -1,5 +1,6 @@
 pragma solidity 0.4.24;
 
+
 contract BusinessCard {
     
     mapping (bytes32 => string) data;
@@ -13,6 +14,7 @@ contract BusinessCard {
         require(msg.sender == owner);
         data[keccak256(abi.encodePacked(key))] = value;
     }
+    
     function getData(string key) public view returns (string) {
         return data[keccak256(abi.encodePacked(key))];
     }
